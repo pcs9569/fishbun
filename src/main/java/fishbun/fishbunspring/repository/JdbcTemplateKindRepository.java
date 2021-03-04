@@ -15,6 +15,9 @@ public class JdbcTemplateKindRepository implements KindRepository{
 
     @Override
     public Kind insert(Kind kind) {
+        System.out.println("-----------repository-----------");
+        System.out.println(kind.getSto_id());
+        System.out.println(kind.getKind_article());
         jdbcTemplate.update("INSERT INTO kind (sto_id, kind_article) VALUES (?,?)", kind.getSto_id(), kind.getKind_article());
         return kind;
     }

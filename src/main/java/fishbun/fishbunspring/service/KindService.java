@@ -12,6 +12,9 @@ public class KindService {
     }
 
     public Kind save(Kind kind){
+        System.out.println("-----------Service-----------");
+        System.out.println(kind.getSto_id());
+        System.out.println(kind.getKind_article());
         kindRepository.insert(kind);
         return kind;
     }

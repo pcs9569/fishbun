@@ -25,7 +25,11 @@ public class KindController {
 
         kind.setSto_id(sto_id);
         kind.setKind_article(kind_article);
+        System.out.println("-----------controller-----------");
+        System.out.println(sto_id);
+        System.out.println(kind_article);
 
+        kindService.save(kind);
         return kind;
     }
 
@@ -38,7 +42,7 @@ public class KindController {
     }
 
     //Read
-    @GetMapping("/{kind_in}")
+    @GetMapping("/{kind_id}")
     @ResponseBody
     public Kind listKind(@PathVariable Integer kind_id){
         Kind kind = kindService.findById(kind_id);
@@ -46,7 +50,7 @@ public class KindController {
     }
 
     //Update
-    @PutMapping("")
+    @PutMapping("/{kind_id}")
     @ResponseBody
     public Kind changeKind(@PathVariable Integer kind_id, @RequestParam(required = false, value = "kind_article") String kind_article){
         Kind kind = kindService.findById(kind_id);
