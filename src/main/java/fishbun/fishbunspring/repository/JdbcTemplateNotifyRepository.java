@@ -15,7 +15,7 @@ public class JdbcTemplateNotifyRepository implements NotifyRepository{
 
     @Override
     public void insert(Notify notify) {
-        jdbcTemplate.update("INSERT INTO notify (sto_id, u_email, noti_content, noti_type) VALUES (?,?,?,?)", notify.getSto_id(),notify.getU_email(),notify.getNoti_content(),notify,notify.getNoti_content());
+        jdbcTemplate.update("INSERT INTO notify (sto_id, u_email, noti_content, noti_type) VALUES (?,?,?,?)", notify.getSto_id(),notify.getU_email(),notify.getNoti_content(),notify.getNoti_type());
     }
 
     @Override

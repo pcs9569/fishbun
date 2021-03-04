@@ -64,7 +64,13 @@ public class StarController {
     @DeleteMapping("/{star_id}")
     @ResponseBody
     public void destroyStar(@PathVariable Integer star_id){
+        System.out.println("-------------Controller destory--------");
+        System.out.println("Integer star_id : "+star_id);
+
         Star star = starService.findById(star_id);
+        starService.remove(star);
+        System.out.println("star.getStar_id() : "+star.getStar_id());
+
         if(star != null){
             starService.remove(star);
         }else{

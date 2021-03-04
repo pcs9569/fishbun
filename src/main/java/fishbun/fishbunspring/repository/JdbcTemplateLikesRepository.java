@@ -22,7 +22,7 @@ public class JdbcTemplateLikesRepository implements LikesRepository{
 
     @Override
     public Likes selectById(Integer likes_id) {
-        Likes likes = jdbcTemplate.queryForObject("SELECT * FROM likes WHERE likes_id", likesRowMapper(), likes_id);
+        Likes likes = jdbcTemplate.queryForObject("SELECT * FROM likes WHERE likes_id=?", likesRowMapper(), likes_id);
         return likes;
     }
 

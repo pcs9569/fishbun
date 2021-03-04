@@ -23,6 +23,8 @@ public class StarService {
     }
 
     public void remove(Star star){
+        System.out.println("----------service-----------");
+        System.out.println(star.getStar_id());
         starRepository.deleteStar(star);
     }
 

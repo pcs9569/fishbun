@@ -56,9 +56,9 @@ public class JdbcTemplateUserRepository implements UserRepository{
 
     @Override
     public User selectByEmail(String u_email) {
-        List<User> result = jdbcTemplate.query("select * from user where u_email = ?", userRowMapper(), u_email);
+        User user = jdbcTemplate.queryForObject("select * from user where u_email = ?", userRowMapper(), u_email);
 //        return result.stream().findAny();
-        return result.get(0);
+        return user;
     }
 //
 //    @Override

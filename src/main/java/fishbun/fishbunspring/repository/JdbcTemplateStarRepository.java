@@ -39,6 +39,7 @@ public class JdbcTemplateStarRepository implements StarRepository {
 
     @Override
     public void deleteStar(Star star) {
+
         int result = jdbcTemplate.update("DELETE FROM star WHERE star_id=?", star.getStar_id());
         System.out.println(result+"개 행 삭제 성공");
     }
@@ -46,10 +47,10 @@ public class JdbcTemplateStarRepository implements StarRepository {
     private RowMapper<Star> starRowMapper(){
         return (rs, rowNum) -> {
             Star star = new Star();
-            star.setStar_id(star.getSto_id());
-            star.setSto_id(star.getSto_id());
-            star.setU_email(star.getU_email());
-            star.setStar_point(star.getStar_point());
+            star.setStar_id(rs.getInt("star_id"));
+            star.setSto_id(rs.getInt("sto_id"));
+            star.setU_email(rs.getString("u_email"));
+            star.setStar_point(rs.getInt("star_point"));
 
             return star;
         };
