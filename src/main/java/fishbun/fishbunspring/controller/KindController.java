@@ -38,7 +38,7 @@ public class KindController {
     }
 
     //Read
-    @GetMapping("")
+    @GetMapping("/{kind_in}")
     @ResponseBody
     public Kind listKind(@PathVariable Integer kind_id){
         Kind kind = kindService.findById(kind_id);
