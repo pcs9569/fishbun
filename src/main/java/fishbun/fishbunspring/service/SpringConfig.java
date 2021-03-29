@@ -1,5 +1,6 @@
 package fishbun.fishbunspring.service;
 
+import fishbun.fishbunspring.domain.FileUploadProperties;
 import fishbun.fishbunspring.repository.*;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -69,5 +70,8 @@ public class SpringConfig {
     @Bean
     public StarRepository starRepository() { return new JdbcTemplateStarRepository(dataSource);}
 
-
+//    @Bean
+//    public FileUploadDownloadService service(){
+//        return new FileUploadDownloadService();
+//    }
 }
